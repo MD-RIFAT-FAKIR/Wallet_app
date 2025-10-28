@@ -23,11 +23,13 @@ Route::prefix('admin')->group(function() {
     Route::post('/login/owner', [AdminController::class, 'adminLogin'])->name('admin.login');
     //admin register form
     Route::get('/register', [AdminController::class, 'adminRegisterForm'])->name('admin.register.form');
+    //admin register store
+    Route::post('/register/store', [AdminController::class, 'adminRegisterStore'])->name('admin.register.store');
     //admin dashboard
     Route::get('/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dashboard')->middleware('admin');
-    
-
 });
+
+
 
 
 

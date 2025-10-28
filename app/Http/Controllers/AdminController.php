@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Admin;
 use Auth;
-
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -29,6 +30,27 @@ class AdminController extends Controller
     //admin register form
     public function adminRegisterForm() {
         return view('admin.admin_register');
+    }
+
+    //admin register store
+    public function adminRegisterStore(Request $request) {
+
+        $validation = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'confirm_password' => 'required',
+        ]);
+
+        Admin::insert([
+            'name' => $request->name,
+            'email' => $request->email ,
+            'password' => Hash::make($request->password),
+            'created_at' => Carbon::now(),
+        ]);
+
+        return redirect()->route('admin.login.form')->with('success', 'Admin Register Successfully');
+
     }
 
     //admin dashboard

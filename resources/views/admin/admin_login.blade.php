@@ -31,6 +31,12 @@
                       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                   @endif
+                  @if(Session::has('success'))
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                      {{ Session::get('success') }}
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                  @endif
                   <!-- end input -->
                   <div class="input-style-2">
                     <input type="email" name="email" placeholder="Enter Email" />

@@ -22,24 +22,37 @@
               <div class="col-lg-4">
                 <!-- input style start -->
                 <div class="card-style mb-30">
-                  <form action="" method="post">
+                  <form action="{{ route('admin.register.store') }}" method="post">
                     @csrf
                   <h6 class="mb-25">Admin Register</h6>
                   <!-- end input -->
                   <div class="input-style-2">
                     <input type="text" name="name" placeholder="Enter Name" />
                     <span class="icon"> <i class="lni lni-user"></i> </span>
+                    @error('name')
+                      <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                   </div>
+                  
                   <div class="input-style-2">
                     <input type="email" name="email" placeholder="Enter Email" />
                     <span class="icon"> <i class="lni lni-user"></i> </span>
+                    @error('email')
+                      <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                   </div>
                   <!-- end input -->
                   <div class="input-style-2">
                     <input type="password" name="password" placeholder="Enter Password" />
                   </div>
+                  @error('password')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                  @enderror
                   <div class="input-style-2">
                     <input type="password" name="confirm_password" placeholder="Re_type Password" />
+                    @error('confirm_password')
+                      <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                   </div>
                   <!-- end input -->
                     <button type="submit" class="btn btn-primary">Register</button>
