@@ -22,7 +22,7 @@
               <div class="col-lg-4">
                 <!-- input style start -->
                 <div class="card-style mb-30">
-                  <form action="{{ route('admin.register.store') }}" method="post">
+                  <form action="{{ route('agent.register.store') }}" method="post">
                     @csrf
                   <h6 class="mb-25">Agent Register</h6>
                   <!-- end input -->

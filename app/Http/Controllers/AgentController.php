@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Agent;
 use Auth;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Hash;
+
 
 class AgentController extends Controller
 {
@@ -27,7 +30,27 @@ class AgentController extends Controller
 
     }//end agent login 
 
+    //agent register form setup
     public function agentRegisterForm() {
         return view('agent.agent_register');
+    }
+
+    //agent register store
+    public function agentRegisterStore(Request $request) {
+        $validation = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'confirm_password' => 'required',
+        ]);
+
+        Agent::insert([
+            'name' => $request->name,
+            'email' => $request->email ,
+            'password' => Hash::make($request->password),
+            'created_at' => Carbon::now(),
+        ]);
+
+        return redirect()->route('agent.login.form')->with('success', 'Admin Register Successfully');
     }
 }

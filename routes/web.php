@@ -40,8 +40,11 @@ Route::prefix('/agent')->group(function() {
     Route::get('/login', [AgentController::class, 'index'])->name('agent.login.form');
     //agent login
     Route::post('/login/owner', [AgentController::class, 'agentLogin'])->name('agent.login');
-    //admin register form
+    //agent register form
     Route::get('/register', [AgentController::class, 'agentRegisterForm'])->name('agent.register.form');
+     //agent register store
+    Route::post('/register/store', [AgentController::class, 'agentRegisterStore'])->name('agent.register.store');
+
 
 
 });
