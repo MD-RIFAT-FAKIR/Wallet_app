@@ -16,19 +16,21 @@
   <body>
 
     <!-- ======== main-wrapper start =========== -->
-    <main class="main-wrapper">
           <!-- ========== form-elements-wrapper start ========== -->
           <div class="form-elements-wrapper mt-5">
             <div class="row d-flex justify-content-center align-items-center">
-              <div class="col-lg-6">
+              <div class="col-lg-4">
                 <!-- input style start -->
                 <div class="card-style mb-30">
-                  <form action="" method="post">
+                  <form action="{{ route('admin.login') }}" method="post">
                     @csrf
                   <h6 class="mb-25">Admin Login</h6>
+                  @if(Session::has('error'))
+                    <div class="alert alert-danger">{{ Session::get('error') }}</div>
+                  @endif
                   <!-- end input -->
                   <div class="input-style-2">
-                    <input type="text" name="name" placeholder="Full Name" />
+                    <input type="email" name="email" placeholder="Enter Email" />
                     <span class="icon"> <i class="lni lni-user"></i> </span>
                   </div>
                   <!-- end input -->
@@ -47,7 +49,6 @@
             </div>
             <!-- end row -->
           </div>  
-    </main>
     <!-- ======== main-wrapper end =========== -->
 
     <!-- ========= All Javascript files linkup ======== -->

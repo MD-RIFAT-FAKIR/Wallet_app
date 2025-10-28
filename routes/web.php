@@ -19,6 +19,9 @@ use App\Http\Controllers\AdminController;
 Route::prefix('admin')->group(function() {
     //admin login form
     Route::get('/login', [AdminController::class, 'index'])->name('admin.login.form');
+    //admin register
+    Route::post('/login/owner', [AdminController::class, 'adminLogin'])->name('admin.login');
+    
 
 });
 
