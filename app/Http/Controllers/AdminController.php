@@ -57,6 +57,14 @@ class AdminController extends Controller
     public function AdminDashboard() {
         return view('admin.dashboard.index');
     }
+
+    //admin logout
+    public function adminLogout() {
+        
+        Auth::guard('admin')->logout();
+
+        return redirect()->route('admin.login.form')->with('success', 'Admin Logout Successfully');
+    }
 }
 
 

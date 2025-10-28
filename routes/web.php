@@ -27,6 +27,8 @@ Route::prefix('admin')->group(function() {
     Route::post('/register/store', [AdminController::class, 'adminRegisterStore'])->name('admin.register.store');
     //admin dashboard
     Route::get('/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dashboard')->middleware('admin');
+    //admin logout
+    Route::get('/logout', [AdminController::class, 'adminLogout'])->name('admin.logout');
 });
 
 
