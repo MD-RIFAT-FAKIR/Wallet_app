@@ -20,7 +20,7 @@ use App\Http\Controllers\AgentController;
 Route::prefix('admin')->group(function() {
     //admin login form
     Route::get('/login', [AdminController::class, 'index'])->name('admin.login.form');
-    //admin register
+    //admin login
     Route::post('/login/owner', [AdminController::class, 'adminLogin'])->name('admin.login');
     //admin register form
     Route::get('/register', [AdminController::class, 'adminRegisterForm'])->name('admin.register.form');
@@ -36,7 +36,11 @@ Route::prefix('admin')->group(function() {
 
 /*-----------agent all route------------*/
 Route::prefix('/agent')->group(function() {
+    //agent login form
     Route::get('/login', [AgentController::class, 'index'])->name('agent.login.form');
+    //agent login
+    Route::post('/login/owner', [AgentController::class, 'agentLogin'])->name('agent.login');
+
 
 });
 

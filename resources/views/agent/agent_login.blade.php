@@ -22,7 +22,7 @@
               <div class="col-lg-4">
                 <!-- input style start -->
                 <div class="card-style mb-30">
-                  <form action="" method="post">
+                  <form action="{{ route('agent.login') }}" method="post">
                     @csrf
                   <h6 class="mb-25">Agent Login</h6>
                   @if(Session::has('error'))
