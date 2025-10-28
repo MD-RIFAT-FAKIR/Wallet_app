@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AgentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,12 +31,21 @@ Route::prefix('admin')->group(function() {
     //admin logout
     Route::get('/logout', [AdminController::class, 'adminLogout'])->name('admin.logout');
 });
-
-
-
-
-
 /* ---------------End Admin Routes------------ */
+
+
+/*-----------agent all route------------*/
+Route::prefix('/agent')->group(function() {
+    Route::get('/login', [AgentController::class, 'index'])->name('agent.login.form');
+
+});
+
+
+/*----------endagent all route----------*/
+
+
+
+
 
 Route::get('/', function () {
     return view('welcome');
