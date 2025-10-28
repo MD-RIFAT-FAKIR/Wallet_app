@@ -52,5 +52,14 @@ class AgentController extends Controller
         ]);
 
         return redirect()->route('agent.login.form')->with('success', 'Admin Register Successfully');
+    } //end 
+
+    //agent dashboard 
+    public function agentDashboard() {
+        return view('agent.dashboard.index');
     }
+
+
+
+
 }
