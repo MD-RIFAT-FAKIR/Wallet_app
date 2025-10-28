@@ -25,6 +25,11 @@ class AdminController extends Controller
             return back()->with('error', 'Invalid Name Or Password !');
         }
     }// end admin login
+
+    //admin dashboard
+    public function AdminDashboard() {
+        return view('admin.dashboard.index');
+    }
 }
 
 

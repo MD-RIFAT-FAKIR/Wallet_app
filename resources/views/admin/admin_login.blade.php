@@ -26,7 +26,10 @@
                     @csrf
                   <h6 class="mb-25">Admin Login</h6>
                   @if(Session::has('error'))
-                    <div class="alert alert-danger">{{ Session::get('error') }}</div>
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                      {{ Session::get('error') }}
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
                   @endif
                   <!-- end input -->
                   <div class="input-style-2">
