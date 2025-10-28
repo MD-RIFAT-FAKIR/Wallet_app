@@ -26,6 +26,11 @@ class AdminController extends Controller
         }
     }// end admin login
 
+    //admin register form
+    public function adminRegisterForm() {
+        return view('admin.admin_register');
+    }
+
     //admin dashboard
     public function AdminDashboard() {
         return view('admin.dashboard.index');

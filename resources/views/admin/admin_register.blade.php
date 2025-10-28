@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon" />
-    <title>Admin Login</title>
+    <title>Admin Register</title>
 
     <!-- ========== All CSS files linkup ========= -->
     <link rel="stylesheet" href="{{ asset('backend/assets/css/bootstrap.min.css') }}" />
@@ -22,16 +22,14 @@
               <div class="col-lg-4">
                 <!-- input style start -->
                 <div class="card-style mb-30">
-                  <form action="{{ route('admin.login') }}" method="post">
+                  <form action="" method="post">
                     @csrf
-                  <h6 class="mb-25">Admin Login</h6>
-                  @if(Session::has('error'))
-                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                      {{ Session::get('error') }}
-                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                  @endif
+                  <h6 class="mb-25">Admin Register</h6>
                   <!-- end input -->
+                  <div class="input-style-2">
+                    <input type="text" name="name" placeholder="Enter Name" />
+                    <span class="icon"> <i class="lni lni-user"></i> </span>
+                  </div>
                   <div class="input-style-2">
                     <input type="email" name="email" placeholder="Enter Email" />
                     <span class="icon"> <i class="lni lni-user"></i> </span>
@@ -40,9 +38,12 @@
                   <div class="input-style-2">
                     <input type="password" name="password" placeholder="Enter Password" />
                   </div>
+                  <div class="input-style-2">
+                    <input type="password" name="confirm_password" placeholder="Re_type Password" />
+                  </div>
                   <!-- end input -->
-                    <button type="submit" class="btn btn-primary">Login</button>
-                    <a href="{{ route('admin.register.form') }}" class="mx-4">Don't you have an acount?</a>
+                    <button type="submit" class="btn btn-primary">Register</button>
+                    <a href="{{ route('admin.login.form') }}" class="mx-4">Already have an acount?</a>
                 </form>
                 </div>
                 <!-- end card -->
