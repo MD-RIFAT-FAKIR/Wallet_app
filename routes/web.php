@@ -45,8 +45,9 @@ Route::prefix('/agent')->group(function() {
     //agent register store
     Route::post('/register/store', [AgentController::class, 'agentRegisterStore'])->name('agent.register.store');
     //agent dashboard
-    Route::get('/dashboard', [AgentController::class, 'agentDashboard'])->name('agent.dashboard');
-
+    Route::get('/dashboard', [AgentController::class, 'agentDashboard'])->name('agent.dashboard')->middleware('agent');
+    //agent logout
+    Route::get('/logout', [AgentController::class, 'agentLogout'])->name('agent.logout');
 
 
 });

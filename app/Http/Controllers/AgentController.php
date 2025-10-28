@@ -59,6 +59,14 @@ class AgentController extends Controller
         return view('agent.dashboard.index');
     }
 
+    //agent logout
+    public function agentLogout() {
+
+        Auth::guard('agent')->logout();
+
+        return redirect()->route('agent.login.form')->with('success', 'Agent Logout Successfully');
+    }
+
 
 
 
