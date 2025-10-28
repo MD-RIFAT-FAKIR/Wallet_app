@@ -25,5 +25,9 @@ class AgentController extends Controller
             return redirect()->route('agent.login.form')->with('error', 'Invalid Email or Password');
         }
 
+    }//end agent login 
+
+    public function agentRegisterForm() {
+        return view('agent.agent_register');
     }
 }
